@@ -36,8 +36,9 @@ fit.deg <- function(alpha,parms) {
 }
 
 x <- sapply(A <- seq(1e-7,1e-6,by=1e-7),function(a) fit.deg(a,parms))
-plot(A,x[1,])
-plot(A,x[2,])
+par(mfrow=c(2,1))
+plot(log10(A),x[1,])
+plot(log10(A),x[2,])
 
 
 par(mfrow=c(3,1))
