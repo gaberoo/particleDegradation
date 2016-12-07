@@ -59,16 +59,18 @@ shinyServer(function(input, output) {
     })
 
     par(mfrow=c(5,1))
-    plot(out[,1],V,type="l",ylim=c(0,V[1]),main="Particle volume")
+    xlim <- c(0,input$max.time)
+
+    plot(out[,1],V,type="l",xlim=xlim,ylim=c(0,V[1]),main="Particle volume")
     lines(out[,1],sigmoid(out[,1],k,Tau),lty=2)
     legend("topright",c(sprintf("T = %.2f",Tau),sprintf("k = %.2f",k)),cex=2)
 
-    plot(out[,1],out[,2]+out[,3],type="l", main="Bacteria")
+    plot(out[,1],out[,2]+out[,3],xlim=xlim,type="l", main="Bacteria")
     lines(out[,1],out[,2],type="l", main="Primary",col="red")
     lines(out[,1],out[,3],type="l", main="Secondary",col="blue")
     legend("topright",c("Primary","Secondary"),lty=1,
            col=c("red","blue"),cex=2)
 
-    plot(out[,1],out[,5],type="l", main="Monomers")
+    plot(out[,1],out[,5],xlim=xlim,type="l",main="Monomers")
   })
 })

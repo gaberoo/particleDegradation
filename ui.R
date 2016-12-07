@@ -7,8 +7,8 @@ shinyUI(fluidPage(
   titlePanel("Particle Degradation"),
 
   # Sidebar with a slider input for the number of bins
-  sidebarLayout(
-    sidebarPanel(
+  fluidRow(
+    column(3,
       numericInput("max.time", "Max time", value=100),
       numericInput("init.rad", "Initial particle radius", value=100),
       sliderInput("alpha","Attachment rate (primary) [log10]",
@@ -18,7 +18,9 @@ shinyUI(fluidPage(
       sliderInput("alpha2","Attachment rate (secondary) [log10]",
                   min=-10,max=0,value=-10,step=0.1),
       sliderInput("beta2", "Growth rate (secondary) [log10]",
-                  min=-4,max=0,value=-4,step=0.1),
+                  min=-4,max=0,value=-4,step=0.1)
+    ),
+    column(3,
       sliderInput("gamma", "Uptake rate [log10]",
                   min=-8,max=-3,value=-6,step=0.1),
       sliderInput("mu",   "Death rate [log10]",
@@ -32,9 +34,7 @@ shinyUI(fluidPage(
       sliderInput("nu",  "Monomer loss [log10]",
                   min=-2,  max=2,value=0,step=0.1)
     ),
-
-    # Show a plot of the generated distribution
-    mainPanel(
+    column(6,
       plotOutput("degrade.plot")
     )
   )
