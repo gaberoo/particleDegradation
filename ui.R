@@ -13,7 +13,7 @@ shinyUI(fluidPage(
   tabsetPanel(id="eqTabs",
     tabPanel(title="Parasite",value=0,
       div("$$\\dot B_1 = \\left( a_1 + b_1 g M \\right) \\left( 1 - \\frac{B_1+B_2}{K \\cdot 4 \\pi r^2} \\right) - m \\, B_1$$"),
-      div("$$\\dot B_2 = \\left( a_2 + b_2 B_1 B_2 \\right) \\left( 1 - \\frac{B_1+B_2}{K \\cdot 4 \\pi r^2} \\right) - m \\, B_2$$"),
+      div("$$\\dot B_2 = \\left( a_2 + b_2^\\ast B_1 B_2 \\right) \\left( 1 - \\frac{B_1+B_2}{K \\cdot 4 \\pi r^2} \\right) - m \\, B_2, \\quad b_2^\\ast = 10000 b_2$$"),
       div("$$\\dot r   = -p B_1 \\frac{q(r)}{4 \\pi r^2 \\cdot \\rho}, \\quad q(r) \\propto 4 \\pi r^2 $$"),
       div("$$\\dot M   = p B_1 q(r) - g M \\left( 1 - \\frac{B_1+B_2}{K \\cdot 4 \\pi r^2} \\right) - n \\, M$$")
     ),
